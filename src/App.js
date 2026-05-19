@@ -1,24 +1,76 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from "react";
+
+import {
+  BrowserRouter,
+  Routes,
+  Route,
+  Navigate,
+} from "react-router-dom";
+
+import Login from "./components/Login";
+import Signup from "./components/Signup";
+
+import Dashboard from "./pages/Dashboard";
 
 function App() {
+  const [isLoggedIn, setIsLoggedIn] =
+    useState(
+      localStorage.getItem("isLoggedIn") ===
+        "true"
+    );
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <BrowserRouter>
+      <Routes>
+        {/* Default Route */}
+
+        <Route
+          path="/"
+          element={
+            isLoggedIn ? (
+              <Navigate to="/dashboard" />
+            ) : (
+              <Navigate to="/login" />
+            )
+          }
+        />
+
+        {/* Login */}
+
+        <Route
+          path="/login"
+          element={
+            <Login
+              setIsLoggedIn={setIsLoggedIn}
+            />
+          }
+        />
+
+        {/* Signup */}
+
+        <Route
+          path="/signup"
+          element={<Signup />}
+        />
+
+        {/* Protected Dashboard */}
+
+        <Route
+          path="/dashboard"
+          element={
+            isLoggedIn ? (
+              <Dashboard
+                setIsLoggedIn={
+                  setIsLoggedIn
+                }
+              />
+            ) : (
+              <Navigate to="/login" />
+            )
+          }
+        />
+      </Routes>
+    </BrowserRouter>
   );
 }
 
