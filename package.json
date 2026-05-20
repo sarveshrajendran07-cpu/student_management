@@ -1,5 +1,9 @@
 {
+<<<<<<< HEAD
   "name": "web",
+=======
+  "name": "singup",
+>>>>>>> 96790c7ed8f26afaa4de77a2b49f65016d79f6cf
   "version": "0.1.0",
   "private": true,
   "dependencies": {

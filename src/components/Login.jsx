@@ -7,7 +7,11 @@ import {
   Link,
 } from "react-router-dom";
 
+<<<<<<< HEAD
 import "./Student.css";
+=======
+import "./Library.css";
+>>>>>>> 96790c7ed8f26afaa4de77a2b49f65016d79f6cf
 
 function Login({ setIsLoggedIn }) {
   const navigate = useNavigate();
@@ -22,14 +26,21 @@ function Login({ setIsLoggedIn }) {
     e.preventDefault();
 
     try {
+<<<<<<< HEAD
       const response = await axios.post(
+=======
+      await axios.post(
+>>>>>>> 96790c7ed8f26afaa4de77a2b49f65016d79f6cf
         "http://92.205.109.210:8070/api/login",
         loginData
       );
 
+<<<<<<< HEAD
       console.log(response.data);
 
       // Store Login
+=======
+>>>>>>> 96790c7ed8f26afaa4de77a2b49f65016d79f6cf
       localStorage.setItem(
         "isLoggedIn",
         "true"
@@ -39,7 +50,11 @@ function Login({ setIsLoggedIn }) {
 
       alert("✅ Login Successful");
 
+<<<<<<< HEAD
       navigate("/students");
+=======
+      navigate("/dashboard");
+>>>>>>> 96790c7ed8f26afaa4de77a2b49f65016d79f6cf
     } catch (error) {
       console.log(error);
 
@@ -50,7 +65,11 @@ function Login({ setIsLoggedIn }) {
   return (
     <div className="auth-container">
       <div className="auth-card">
+<<<<<<< HEAD
         <h2>Login</h2>
+=======
+        <h2>Library Login</h2>
+>>>>>>> 96790c7ed8f26afaa4de77a2b49f65016d79f6cf
 
         <form onSubmit={handleLogin}>
           <input
