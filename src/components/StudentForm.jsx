@@ -52,14 +52,14 @@ function StudentForm() {
     try {
       if (editId) {
         await axios.post(
-          `http://92.205.109.210:8051/api/update/${editId}`,
+          `${process.env.REACT_APP_STUDENT_API}/api/update/${editId}`,
           formData
         );
 
         alert("✅ Student Updated Successfully");
       } else {
         await axios.post(
-          "http://92.205.109.210:8051/api/create",
+          `${process.env.REACT_APP_STUDENT_API}/api/create`,
           formData
         );
 

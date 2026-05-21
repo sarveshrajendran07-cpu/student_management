@@ -12,12 +12,12 @@ import Navbar from "./components/Navbar";
 import Home from "./pages/Home";
 import AddStudent from "./pages/AddStudent";
 import StudentList from "./pages/StudentList";
-import Dashboard from "./pages/Dashboard";
 
 import Login from "./components/Login";
 import Signup from "./components/Signup";
 
 function App() {
+  // Check Login Status
   const [isLoggedIn, setIsLoggedIn] =
     useState(
       localStorage.getItem("isLoggedIn") ===
@@ -29,19 +29,8 @@ function App() {
       <Navbar isLoggedIn={isLoggedIn} />
 
       <Routes>
-        {/* Default Route */}
-        <Route
-          path="/"
-          element={
-            isLoggedIn ? (
-              <Navigate to="/home" />
-            ) : (
-              <Navigate to="/login" />
-            )
-          }
-        />
+        <Route path="/" element={<Home />} />
 
-        {/* Login */}
         <Route
           path="/login"
           element={
@@ -51,29 +40,13 @@ function App() {
           }
         />
 
-        {/* Signup */}
         <Route
           path="/signup"
           element={<Signup />}
         />
 
-        {/* Dashboard */}
-        <Route
-          path="/home"
-          element={
-            isLoggedIn ? (
-              <Home
-                setIsLoggedIn={
-                  setIsLoggedIn
-                }
-              />
-            ) : (
-              <Navigate to="/login" />
-            )
-          }
-        />
+        {/* Protected Routes */}
 
-        {/* Add Student */}
         <Route
           path="/add-student"
           element={
@@ -85,7 +58,6 @@ function App() {
           }
         />
 
-        {/* Student List */}
         <Route
           path="/students"
           element={

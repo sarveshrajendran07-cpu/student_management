@@ -27,7 +27,7 @@ function Navbar({ isLoggedIn }) {
       <div className="nav-links">
         <Link to="/">Home</Link>
 
-        {!isLoggedIn ? (
+        {!isLoggedIn && (
           <>
             <Link to="/login">
               Login
@@ -37,12 +37,10 @@ function Navbar({ isLoggedIn }) {
               Signup
             </Link>
           </>
-        ) : (
-          <>
-            {/* <Link to="/dashboard">
-              Dashboard
-            </Link> */}
+        )}
 
+        {isLoggedIn && (
+          <>
             <Link to="/add-student">
               Add Student
             </Link>

@@ -16,7 +16,7 @@ function StudentList() {
   const fetchStudents = async () => {
     try {
       const response = await axios.get(
-        "http://92.205.109.210:8051/api/getall"
+        `${process.env.REACT_APP_STUDENT_API}api/getall`
       );
 
       setStudents(response.data.data);
@@ -33,7 +33,7 @@ function StudentList() {
   const handleDelete = async (id) => {
     try {
       await axios.post(
-        `http://92.205.109.210:8051/api/delete/${id}`
+        `${process.env.REACT_APP_STUDENT_API}/api/delete/${id}`
       );
 
       fetchStudents();
