@@ -23,7 +23,7 @@ function Login({ setIsLoggedIn }) {
 
     try {
       const response = await axios.post(
-        "http://92.205.109.210:8070/api/login",
+         `${process.env.REACT_APP_API}/api/login`,
         loginData
       );
 

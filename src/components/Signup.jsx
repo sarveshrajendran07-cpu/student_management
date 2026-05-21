@@ -25,7 +25,7 @@ function Signup() {
 
     try {
       const response = await axios.post(
-        "http://92.205.109.210:8070/api/signup",
+        `${process.env.REACT_APP_API}/api/signup`,
         signupData
       );
 
