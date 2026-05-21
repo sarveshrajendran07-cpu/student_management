@@ -16,7 +16,7 @@ function StudentList() {
   const fetchStudents = async () => {
     try {
       const response = await axios.get(
-        `${process.env.REACT_APP_STUDENT_API}api/getall`
+        `${process.env.REACT_APP_STUDENT_API}/api/getall`
       );
 
       setStudents(response.data.data);
