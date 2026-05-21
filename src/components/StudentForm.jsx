@@ -29,7 +29,7 @@ function StudentForm() {
   const fetchStudents = async () => {
     try {
       const response = await axios.get(
-        "http://92.205.109.210:8051/api/getall"
+        `${process.env.REACT_APP_STUDENT_API}/api/getall`
       );
 
       console.log(response.data);
