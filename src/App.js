@@ -34,7 +34,7 @@ function App() {
           path="/"
           element={
             isLoggedIn ? (
-              <Navigate to="/dashboard" />
+              <Navigate to="/home" />
             ) : (
               <Navigate to="/login" />
             )
@@ -59,10 +59,10 @@ function App() {
 
         {/* Dashboard */}
         <Route
-          path="/dashboard"
+          path="/home"
           element={
             isLoggedIn ? (
-              <Dashboard
+              <Home
                 setIsLoggedIn={
                   setIsLoggedIn
                 }

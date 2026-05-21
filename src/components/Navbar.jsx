@@ -39,9 +39,9 @@ function Navbar({ isLoggedIn }) {
           </>
         ) : (
           <>
-            <Link to="/dashboard">
+            {/* <Link to="/dashboard">
               Dashboard
-            </Link>
+            </Link> */}
 
             <Link to="/add-student">
               Add Student
